@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sagar Jobs & Prep</title>
+  <meta name="description" content="Job openings, projects, and interview questions for AWS/DevOps and tech roles." />
+  <meta name="author" content="Sagar Patade" />
+  <meta property="og:title" content="Sagar Jobs & Prep" />
+  <meta property="og:description" content="Daily tech job openings, project case studies, and interview Q&A." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#0b1120;--fg:#e5e7eb;--muted:#94a3b8;--card:#0f172a;--brand:#0ea5e9;--accent:#22c55e;--danger:#ef4444}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--fg);scroll-behavior:smooth}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,17,32,.8);backdrop-filter:blur(10px);border-bottom:1px solid #1f2937}
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .nav-links{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:9999px;background:var(--brand);color:#001014;font-weight:600;border:0}
+    .btn.secondary{background:#1f2937;color:var(--fg);border:1px solid #334155}
+    .btn.small{padding:.4rem .7rem;font-size:.9rem}
+    .hero{padding:72px 0;background:linear-gradient(180deg,rgba(14,165,233,.15),rgba(14,165,233,0));border-bottom:1px solid #1f2937}
+    .hero h1{font-size:2rem;margin:0 0 .5rem}
+    .hero p{color:var(--muted);margin:.25rem 0}
+    .grid{display:grid;gap:1rem}
+    @media(min-width:768px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:1rem}
+    .card h3{margin:.2rem 0 .5rem;font-size:1.05rem}
+    .badge{display:inline-block;padding:.2rem .5rem;border:1px solid #334155;border-radius:9999px;color:#cbd5e1;font-size:.75rem}
+    .muted{color:var(--muted)}
+    .section{padding:56px 0;border-bottom:1px solid #1f2937}
+    .section h2{margin:0 0 .25rem}
+    .toolbar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.75rem 0}
+    input,select,textarea{background:#0b1224;color:var(--fg);border:1px solid #334155;border-radius:10px;padding:.6rem .7rem}
+    input::placeholder,textarea::placeholder{color:#6b7280}
+    .list{display:grid;gap:1rem}
+    @media(min-width:900px){.list.cols-2{grid-template-columns:repeat(2,1fr)}.list.cols-3{grid-template-columns:repeat(3,1fr)}}
+    footer{padding:48px 0}
+    .pill{border:1px solid #334155;border-radius:9999px;padding:.25rem .6rem;font-size:.75rem;color:#cbd5e1}
+    .hidden{display:none !important}
+    .hr{height:1px;background:#1f2937;margin:1rem 0}
+    .policy p{line-height:1.7}
+    .toast{position:fixed;right:1rem;bottom:1rem;background:#111827;color:#f9fafb;border:1px solid #374151;padding:.75rem 1rem;border-radius:12px}
+
+    /* Modal styles - minimal and matching existing design */
+    #jobModal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:1rem;z-index:1000}
+    #jobModal.hidden{display:none}
+    #jobModal .modal-backdrop{position:absolute;inset:0;background:rgba(2,6,23,0.6)}
+    #jobModal .modal-card{position:relative;z-index:1001;max-width:760px;width:100%}
+    #jobModal .modal-card .close-btn{position:absolute;right:12px;top:12px}
+    #jobModal .modal-card p.muted{margin-top:.5rem}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Sagar Jobs & Prep",
+    "url":"https://example.com",
+    "potentialAction":{"@type":"SearchAction","target":"https://example.com/#jobs?q={search_term_string}","query-input":"required name=search_term_string"}
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <span class="pill">S</span>
+          <strong>Sagar Jobs & Prep</strong>
+        </div>
+        <div class="nav-links">
+          <a href="#jobs" class="pill">Jobs</a>
+          <a href="#projects" class="pill">Projects</a>
+          <a href="#interview" class="pill">Interview Qs</a>
+          <a href="#blog" class="pill">Blog</a>
+          <a href="#about" class="pill">About</a>
+          <a href="#contact" class="pill">Contact</a>
+          <a href="#policies" class="pill">Policies</a>
+        </div>
+        <a href="#subscribe" class="btn small">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Find Tech Jobs & Ace Your Interviews</h1>
+      <p>Fresh, curated openings + project case studies + interview questions for AWS/DevOps and software roles.</p>
+      <div class="toolbar">
+        <a class="btn" href="#jobs">Browse Jobs</a>
+        <a class="btn secondary" href="#interview">Practice Interview Qs</a>
+      </div>
+      <div class="grid cols-3" style="margin-top:1rem">
+        <div class="card">
+          <span class="badge">Updated Daily</span>
+          <h3>Curated Job Openings</h3>
+          <p class="muted">Short, verified listings with apply links. Filters for role, location, and experience.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Hands-on</span>
+          <h3>Real Projects</h3>
+          <p class="muted">Step-by-step case studies with tools, architecture, and GitHub links.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Q&A</span>
+          <h3>Interview Prep</h3>
+          <p class="muted">Topic-wise question banks with concise explanations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOBS SECTION -->
+  <section id="jobs" class="section">
+    <div class="container">
+      <h2>Latest Job Openings</h2>
+      <p class="muted">Add your daily jobs in the <strong>jobsData</strong> array inside this file. Filters update automatically.</p>
+      <div class="toolbar">
+        <input id="jobSearch" type="search" placeholder="Search role, company, skill..." />
+        <select id="jobType">
+          <option value="">All Types</option>
+          <option>Full-time</option>
+          <option>Internship</option>
+          <option>Contract</option>
+          <option>Remote</option>
+        </select>
+        <select id="jobLocation">
+          <option value="">All Locations</option>
+          <option>Pune</option>
+          <option>Mumbai</option>
+          <option>Bengaluru</option>
+          <option>Hyderabad</option>
+          <option>Remote</option>
+        </select>
+        <select id="jobExp">
+          <option value="">Any Experience</option>
+          <option>Fresher</option>
+          <option>0-1</option>
+          <option>1-3</option>
+          <option>3-5</option>
+          <option>5+</option>
+        </select>
+        <button class="btn small" id="clearFilters">Clear</button>
+      </div>
+      <div class="list cols-2" id="jobsList"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <p class="muted">Add and edit projects in the <strong>projectsData</strong> array below.</p>
+      <div class="list cols-2" id="projectsList"></div>
+    </div>
+  </section>
+
+  <!-- INTERVIEW SECTION -->
+  <section id="interview" class="section">
+    <div class="container">
+      <h2>Interview Questions</h2>
+      <div class="toolbar">
+        <select id="iqTopic">
+          <option value="">All Topics</option>
+          <option value="AWS">AWS</option>
+          <option value="DevOps">DevOps</option>
+          <option value="Docker">Docker</option>
+          <option value="Kubernetes">Kubernetes</option>
+          <option value="HR">HR</option>
+        </select>
+        <input id="iqSearch" type="search" placeholder="Search questions..." />
+      </div>
+      <div class="list" id="iqList"></div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION -->
+  <section id="blog" class="section">
+    <div class="container">
+      <h2>Blog</h2>
+      <p class="muted">Create short posts in the <strong>blogData</strong> array. Link long-form posts hosted elsewhere if you like.</p>
+      <div class="list cols-2" id="blogList"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Hi, I'm Sagar 👋</h3>
+          <p class="muted">AWS/DevOps enthusiast sharing curated jobs, hands-on projects, and interview prep content. This site is Phase 1 (static), optimized for speed and SEO. Monetization-ready with Policies below.</p>
+          <p><strong>Tech Stack:</strong> HTML + CSS + JS (no build tools). Deployed free on Netlify/Vercel.</p>
+        </div>
+        <div class="card">
+          <h3>How to Use This Site</h3>
+          <ul>
+            <li>Update <strong>jobsData</strong> daily (just edit this file).</li>
+            <li>Add more Q&A in <strong>iqData</strong>.</li>
+            <li>Write short posts in <strong>blogData</strong>.</li>
+            <li>Link to your <a href="https://sagar-p-portfolio.netlify.app" target="_blank" rel="noopener">portfolio</a>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid cols-2">
+        <form class="card" id="contactForm" onsubmit="return handleContact(event)">
+          <label>Name<br /><input required type="text" name="name" placeholder="Your name" /></label><br />
+          <label>Email<br /><input required type="email" name="email" placeholder="you@example.com" /></label><br />
+          <label>Message<br /><textarea required name="message" rows="4" placeholder="How can I help?"></textarea></label><br />
+          <button class="btn" type="submit">Send</button>
+          <p class="muted" style="margin-top:.5rem">In Phase 1 this form saves locally. Replace with a Netlify form or Google Form later.</p>
+        </form>
+        <div class="card">
+          <h3>Connect</h3>
+          <p>Email: <a href="mailto:sagar@example.com">sagar@example.com</a></p>
+          <p>LinkedIn: <a href="#" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
+          <p>GitHub: <a href="#" target="_blank" rel="noopener">github.com/yourhandle</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICIES SECTION (Required for AdSense/Affiliates) -->
+  <section id="policies" class="section">
+    <div class="container">
+      <h2>Policies</h2>
+      <div class="grid cols-3 policy">
+        <div class="card">
+          <h3>Privacy Policy</h3>
+          <p>We respect your privacy. We may use cookies for basic analytics. If you subscribe, your email is used only to send updates. We do not sell your data. For any queries, contact us at the email above.</p>
+        </div>
+        <div class="card">
+          <h3>Terms & Conditions</h3>
+          <p>All job listings are provided for informational purposes. Always verify details on the company’s official page before applying. By using this site, you agree not to misuse content or attempt to scrape without permission.</p>
+        </div>
+        <div class="card">
+          <h3>Disclaimer</h3>
+          <p>Some links may be affiliate links; we may earn a small commission at no extra cost to you. Sponsored posts will be labeled clearly. Opinions expressed are our own.</p>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div id="subscribe" class="card">
+        <h3>Subscribe for weekly updates</h3>
+        <form onsubmit="return handleSubscribe(event)">
+          <input required type="email" placeholder="you@example.com" id="subEmail" />
+          <button class="btn small" type="submit">Subscribe</button>
+        </form>
+        <p class="muted" style="margin-top:.5rem">In Phase 1, this stores locally. Later, connect to Mailchimp/Brevo/ConvertKit.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="grid cols-2">
+        <p class="muted">© <span id="year"></span> Sagar Patade. All rights reserved.</p>
+        <p style="text-align:right" class="muted">Built with ♥ — Phase 1 Static</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Job details modal (opens on Apply) -->
+  <div id="jobModal" class="hidden" aria-hidden="true">
+    <div class="modal-backdrop" onclick="closeJobModal()"></div>
+    <div class="modal-card card" role="dialog" aria-modal="true">
+      <button class="btn secondary small close-btn" onclick="closeJobModal()">Close</button>
+      <h3 id="modalTitle"></h3>
+      <p class="muted" id="modalMeta"></p>
+      <p id="modalDescription" class="muted"></p>
+      <p class="muted">Skills: <span id="modalSkills"></span></p>
+      <p class="muted">Posted: <span id="modalPosted"></span></p>
+      <p class="muted">Contact: <a id="modalEmail" href=""></a></p>
+      <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+        <a id="modalApplyLink" class="btn" href="#" target="_blank" rel="noopener">Open Apply Link</a>
+        <a id="modalMailLink" class="btn secondary small" href="#">Email Employer</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==========================
+    // 1) EDITABLE CONTENT ARRAYS
+    // ==========================
+    const jobsData = [
+      { id: 1, title: "DevOps Engineer (Fresher)", company: "TechSpark", location: "Pune", type: "Full-time", exp: "Fresher", skills: ["Linux","Git","AWS Basics"], applyUrl: "https://company.example/jobs/123", posted: "2025-08-20", contactEmail: "hr@techspark.com", description: "Entry-level DevOps role. Work with Linux, CI pipelines and basic AWS services. Great mentorship and learning opportunities." },
+      { id: 2, title: "AWS Cloud Intern", company: "CloudStart", location: "Remote", type: "Internship", exp: "0-1", skills: ["EC2","S3","Python"], applyUrl: "https://forms.gle/example", posted: "2025-08-21", contactEmail: "internships@cloudstart.com", description: "Hands-on internship focused on AWS fundamentals, building small automation scripts and supporting cloud projects ." },
+      { id: 3, title: "Junior SRE", company: "FinTechX", location: "Bengaluru", type: "Full-time", exp: "1-3", skills: ["Docker","Kubernetes","Prometheus"], applyUrl: "https://jobs.example/sre", posted: "2025-08-19", contactEmail: "recruit@fintechx.com", description: "Support platform reliability: debugging, monitoring, and incremental automation. Experience with containers and observability preferred." },
+      { id: 4, title: "Backend Developer (Java)", company: "ShopNow", location: "Hyderabad", type: "Full-time", exp: "1-3", skills: ["Java","Spring","SQL"], applyUrl: "https://jobs.example/backend", posted: "2025-08-18", contactEmail: "careers@shopnow.com", description: "Backend development on Spring-based services, working with relational databases and REST APIs." },
+      { id: 5, title: "React Developer - Remote", company: "WebWorks", location: "Remote", type: "Remote", exp: "1-3", skills: ["React","Next.js","CSS"], applyUrl: "https://jobs.example/react", posted: "2025-08-17", contactEmail: "devs@webworks.com", description: "Frontend engineering with React/Next.js. Build responsive interfaces and collaborate with product teams." },
+    ];
+
+    const projectsData = [
+      { title: "EC2 Auto Deploy Script", tags:["AWS","Bash"], summary: "Provision EC2, install Java 21 & Maven, deploy Spring MVC from GitHub, health-check on :80.", details: "Stage-based config (Dev/Prod), idempotent setup, logs to S3.", link: "https://github.com/yourhandle/ec2-auto-deploy" },
+      { title: "Jenkins CI/CD with Docker", tags:["Jenkins","Docker"], summary: "Build → Test → Deploy pipeline using Docker agents.", details: "Triggers on main push, artifact versioning, rollbacks.", link: "https://github.com/yourhandle/jenkins-docker-ci" },
+      { title: "Terraform: Docker Provider", tags:["Terraform","Docker"], summary: "Provision local Docker container with IaC.", details: "main.tf with provider, resources, lifecycle.", link: "https://github.com/yourhandle/terraform-docker" },
+    ];
+
+    const iqData = [
+      { topic:"AWS", q:"What is an EC2 instance?", a:"A virtual server in AWS Elastic Compute Cloud used to run applications." },
+      { topic:"DevOps", q:"Difference between CI and CD?", a:"CI automates integrating code changes; CD automates delivery/deployment to environments." },
+      { topic:"Docker", q:"What is a Docker image?", a:"A read-only template with instructions to create Docker containers." },
+      { topic:"Kubernetes", q:"What is a Pod?", a:"The smallest deployable unit in Kubernetes that can contain one or more containers." },
+      { topic:"HR", q:"Tell me about yourself.", a:"Start with present role/skills, then past highlights, and finish with what you’re looking for." },
+    ];
+
+    const blogData = [
+      { title:"Top 10 AWS Interview Questions (2025)", date:"2025-08-15", excerpt:"Quick-fire Q&A to revise before interviews.", url:"#" },
+      { title:"My DevOps Roadmap for Freshers", date:"2025-08-10", excerpt:"Tools to learn in 90 days with projects.", url:"#" },
+    ];
+
+    // ==========================
+    // 2) RENDER FUNCTIONS
+    // ==========================
+    const el = (sel) => document.querySelector(sel);
+    const listEl = (sel) => document.getElementById(sel);
+
+    function renderJobs(){
+      const q = el('#jobSearch').value.trim().toLowerCase();
+      const type = el('#jobType').value;
+      const loc = el('#jobLocation').value;
+      const exp = el('#jobExp').value;
+      const container = listEl('jobsList');
+      container.innerHTML = '';
+      const filtered = jobsData.filter(j => {
+        const matchesQ = !q || [j.title,j.company,...j.skills].join(' ').toLowerCase().includes(q);
+        const matchesType = !type || j.type === type;
+        const matchesLoc = !loc || j.location === loc;
+        const matchesExp = !exp || j.exp === exp;
+        return matchesQ && matchesType && matchesLoc && matchesExp;
+      }).sort((a,b)=> new Date(b.posted) - new Date(a.posted));
+
+      if(!filtered.length){
+        container.innerHTML = `<p class="muted">No jobs found. Try clearing filters.</p>`;
+        return;
+      }
+
+      filtered.forEach(j => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <div style="display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap">
+            <div>
+              <h3>${j.title}</h3>
+              <p class="muted">${j.company} • ${j.location} • <span class="badge">${j.type}</span> • <span class="badge">${j.exp}</span></p>
+              <p class="muted">Skills: ${j.skills.map(s=>`<span class='pill'>${s}</span>`).join(' ')}</p>
+              <p class="muted">Posted: ${new Date(j.posted).toLocaleDateString()}</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+              <button class="btn" onclick="openJob(${j.id})">Apply</button>
+              <button class="btn secondary small" onclick="copyJob(${j.id})">Copy</button>
+            </div>
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderProjects(){
+      const container = listEl('projectsList');
+      container.innerHTML = '';
+      projectsData.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${p.title}</h3>
+          <p>${p.tags.map(t=>`<span class='pill'>${t}</span>`).join(' ')}</p>
+          <p class="muted">${p.summary}</p>
+          <p class="muted">${p.details}</p>
+          <a class="btn small" href="${p.link}" target="_blank" rel="noopener">View on GitHub</a>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderIQ(){
+      const topic = el('#iqTopic').value;
+      const q = el('#iqSearch').value.trim().toLowerCase();
+      const container = listEl('iqList');
+      container.innerHTML = '';
+      const filtered = iqData.filter(i => (!topic || i.topic===topic) && (!q || (i.q+i.a+i.topic).toLowerCase().includes(q)));
+      if(!filtered.length){
+        container.innerHTML = `<p class="muted">No questions found.</p>`; return; }
+      filtered.forEach(i => {
+        const card = document.createElement('details');
+        card.className = 'card';
+        card.innerHTML = `<summary><strong>${i.topic}</strong> — ${i.q}</summary><p style='margin-top:.5rem' class='muted'>${i.a}</p>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderBlog(){
+      const container = listEl('blogList');
+      container.innerHTML = '';
+      blogData.sort((a,b)=> new Date(b.date)-new Date(a.date)).forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${p.title}</h3>
+          <p class="muted">${new Date(p.date).toLocaleDateString()}</p>
+          <p class="muted">${p.excerpt}</p>
+          <a class="btn small" href="${p.url}" target="_blank" rel="noopener">Read More</a>`;
+        container.appendChild(card);
+      });
+    }
+
+    // ==========================
+    // 3) UTILITIES & HANDLERS
+    // ==========================
+    function copyJob(id){
+      const j = jobsData.find(x=>x.id===id);
+      const text = `${j.title} at ${j.company} (${j.location})\nType: ${j.type}\nExp: ${j.exp}\nSkills: ${j.skills.join(', ')}\nApply: ${j.applyUrl}\nEmail: ${j.contactEmail}\nPosted: ${j.posted}`;
+      navigator.clipboard.writeText(text).then(()=>showToast('Job copied to clipboard')).catch(()=>showToast('Copy failed'));
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      localStorage.setItem('contactDraft', JSON.stringify({ ...data, ts: Date.now() }));
+      e.target.reset();
+      showToast('Message saved locally. Connect real backend later.');
+      return false;
+    }
+
+    function handleSubscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('subEmail').value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showToast('Enter a valid email'); return false; }
+      const list = JSON.parse(localStorage.getItem('subscribers')||'[]');
+      if(!list.includes(email)) list.push(email);
+      localStorage.setItem('subscribers', JSON.stringify(list));
+      document.getElementById('subEmail').value='';
+      showToast('Subscribed locally. Connect to Mailchimp later.');
+      return false;
+    }
+
+    function showToast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.remove('hidden');
+      setTimeout(()=> t.classList.add('hidden'), 2200);
+    }
+
+    // Modal functions: open job details (keeps page/design intact)
+    function openJob(id){
+      const j = jobsData.find(x=>x.id===id);
+      if(!j) return;
+      document.getElementById('modalTitle').textContent = j.title;
+      document.getElementById('modalMeta').textContent = `${j.company} • ${j.location} • ${j.type} • ${j.exp}`;
+      document.getElementById('modalDescription').textContent = j.description || '';
+      document.getElementById('modalSkills').innerHTML = j.skills.map(s=>`<span class='pill'>${s}</span>`).join(' ');
+      document.getElementById('modalPosted').textContent = new Date(j.posted).toLocaleDateString();
+      const emailEl = document.getElementById('modalEmail');
+      emailEl.textContent = j.contactEmail || '';
+      emailEl.href = j.contactEmail ? `mailto:${j.contactEmail}` : '#';
+      document.getElementById('modalApplyLink').href = j.applyUrl || '#';
+      document.getElementById('modalMailLink').href = j.contactEmail ? `mailto:${j.contactEmail}?subject=Application%20for%20${encodeURIComponent(j.title)}` : '#';
+      const modal = document.getElementById('jobModal');
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden','false');
+    }
+
+    function closeJobModal(){
+      const modal = document.getElementById('jobModal');
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeJobModal();
+    });
+
+    // Clear filters + init
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      ['jobSearch','jobType','jobLocation','jobExp'].forEach(id=>{
+        const elx = document.getElementById(id);
+        elx.addEventListener('input', renderJobs);
+        elx.addEventListener('change', renderJobs);
+      });
+      document.getElementById('clearFilters').addEventListener('click', ()=>{
+        document.getElementById('jobSearch').value='';
+        document.getElementById('jobType').value='';
+        document.getElementById('jobLocation').value='';
+        document.getElementById('jobExp').value='';
+        renderJobs();
+      });
+      document.getElementById('iqTopic').addEventListener('change', renderIQ);
+      document.getElementById('iqSearch').addEventListener('input', renderIQ);
+      renderJobs(); renderProjects(); renderIQ(); renderBlog();
+    });
+  </script>
+</body>
+</html>
